@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Layout } from "../components/Layout";
 
 const ColorInput = () => {
   const [color, setColor] = useState("");
@@ -33,21 +34,23 @@ const ColorInput = () => {
 
   return (
     <>
-      <form onSubmit={hundleSubmit}>
-        <h1>Ingrese un color:</h1>
-        <p>Color seleccionado: {color}</p>
-        <p>Color complementario: {complementary}</p>
-        <input type="color" onChange={hundleChange} />
-        <button>Enviar</button>
-      </form>
-      <h2>El color seleccionado es:</h2>
-      <div className="cont-colors">
-        <div style={{ backgroundColor: color }} className="check-color"></div>
-        <div
-          style={{ backgroundColor: complementary }}
-          className="check-color"
-        ></div>
-      </div>
+      <Layout>
+        <form onSubmit={hundleSubmit}>
+          <h1>Ingrese un color:</h1>
+          <p>Color seleccionado: {color}</p>
+          <p>Color complementario: {complementary}</p>
+          <input type="color" onChange={hundleChange} />
+          <button>Enviar</button>
+        </form>
+        <h2>El color seleccionado es:</h2>
+        <div className="cont-colors">
+          <div style={{ backgroundColor: color }} className="check-color"></div>
+          <div
+            style={{ backgroundColor: complementary }}
+            className="check-color"
+          ></div>
+        </div>
+      </Layout>
     </>
   );
 };
